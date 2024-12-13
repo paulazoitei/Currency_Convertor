@@ -1,13 +1,42 @@
 import customtkinter
 from PIL import Image, ImageTk
-
+from crawler import get_rates
 
 def click():
-    print("Button was clicked")
+        print("button was clicked")
 
+
+def convert(amount, from_currency, to_currency, rates):
+        if from_currency == to_currency:
+            return amount
+        else:
+            amount_in_ron = amount * rates[from_currency]
+            amount_in_currency = amount_in_ron / rates[to_currency]
+        return amount_in_currency
+
+def make_conversion():
+        amount = suma.get()
+        if amount:
+            try:
+                amount1 = float(amount)
+                from_currency = dropdown.get()
+                to_currency = dropdown1.get()
+                result = convert(amount1, from_currency, to_currency, rates)
+                label5.configure(text=str(round(result, 4)))
+            except ValueError:
+
+                label5.configure(text="")
+        else:
+
+            label5.configure(text="")
+
+def on_key_release(event):
+        make_conversion()
 
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
+
+rates = get_rates()
 
 window_width = 400
 window_height = 360
@@ -57,7 +86,8 @@ dropdown = customtkinter.CTkOptionMenu(window,
                                        height=25,
                                        dropdown_fg_color="#3B8ED0",
                                        dropdown_hover_color="#010c14",
-                                       dropdown_text_color="#ffffff"
+                                       dropdown_text_color="#ffffff",
+                                       command=lambda x: make_conversion()
                                        )
 
 dropdown.set("RON")
@@ -95,7 +125,8 @@ dropdown1 = customtkinter.CTkOptionMenu(window,
                                         height=25,
                                         dropdown_fg_color="#3B8ED0",
                                         dropdown_hover_color="#010c14",
-                                        dropdown_text_color="#ffffff"
+                                        dropdown_text_color="#ffffff",
+                                        command=lambda x: make_conversion()
                                         )
 
 dropdown1.set("RON")
@@ -122,6 +153,7 @@ suma = customtkinter.CTkEntry(window,
 
                              )
 suma.place(x=37, y=230)
+suma.bind("<KeyRelease>", on_key_release)
 label4 = customtkinter.CTkLabel(window,
                                 text="Result",
                                 text_color="#ffffff",
@@ -141,4 +173,9 @@ label5=customtkinter.CTkLabel(window,
                                 width=143)
 
 label5.place(x=226, y=230)
+
+
+
 window.mainloop()
+
+
