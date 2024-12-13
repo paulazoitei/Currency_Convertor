@@ -3,7 +3,11 @@ from PIL import Image, ImageTk
 from crawler import get_rates
 
 def click():
-        print("button was clicked")
+    from_currency = dropdown.get()
+    to_currency = dropdown1.get()
+    dropdown.set(to_currency)
+    dropdown1.set(from_currency)
+    make_conversion()
 
 
 def convert(amount, from_currency, to_currency, rates):
