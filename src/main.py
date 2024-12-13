@@ -47,9 +47,9 @@ button = customtkinter.CTkButton(window,
                                  )
 button.place(x=140, y=295)
 
-currencies = ["RON", "EUR", "USD", "CHF", "GBP", "BGN", "RUB", "ZAR", "BRL", "CNY", "INR", "MXN", "NZD", "RSD", "UAH",
-              "XDR", "TRY", "XAU", "AUD", "CAD", "CZK", "DKK", "EGP", "MDL", "NOK", "PLN", "SEK", "AED", "THB", "HKD",
-              "ILS", "MYR", "PHP", "SGD"]
+currencies = ["RON", "EUR", "USD", "CHF", "GBP", "BGN", "RUB", "ZAR", "BRL", "CNY", "INR","100KRW", "MXN", "NZD", "RSD", "UAH",
+               "XDR", "TRY", "XAU", "AUD", "CAD", "CZK", "DKK", "EGP","100HUF","100JPY" "MDL", "NOK", "PLN", "SEK", "AED", "THB", "HKD",
+              "100IDR", "ILS","100ISK", "MYR", "PHP", "SGD"]
 dropdown = customtkinter.CTkOptionMenu(window,
                                        values=currencies,
                                        corner_radius=0,
@@ -85,9 +85,9 @@ label2 = customtkinter.CTkLabel(window,
 
 label2.place(x=248, y=90)
 
-currencies1 = ["RON", "EUR", "USD", "CHF", "GBP", "BGN", "RUB", "ZAR", "BRL", "CNY", "INR", "MXN", "NZD", "RSD", "UAH",
-               "XDR", "TRY", "XAU", "AUD", "CAD", "CZK", "DKK", "EGP", "MDL", "NOK", "PLN", "SEK", "AED", "THB", "HKD",
-               "ILS", "MYR", "PHP", "SGD"]
+currencies1 = ["RON", "EUR", "USD", "CHF", "GBP", "BGN", "RUB", "ZAR", "BRL", "CNY", "INR","100KRW", "MXN", "NZD", "RSD", "UAH",
+               "XDR", "TRY", "XAU", "AUD", "CAD", "CZK", "DKK", "EGP","100HUF","100JPY" "MDL", "NOK", "PLN", "SEK", "AED", "THB", "HKD",
+              "100IDR", "ILS","100ISK", "MYR", "PHP", "SGD"]
 dropdown1 = customtkinter.CTkOptionMenu(window,
                                         values=currencies1,
                                         corner_radius=0,
